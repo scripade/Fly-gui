@@ -1,8 +1,6 @@
 -- Load the external script
 loadstring(game:HttpGet("https://raw.githubusercontent.com/scripade/Fly-gui/refs/heads/main/flyguiv2.txt"))()
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/scripade/sh/refs/heads/main/Wsvr.txt"))()
-
 -- TriggerBot Configuration
 TriggerBot = {
     Enabled = true,            -- TriggerBot enabled by default
