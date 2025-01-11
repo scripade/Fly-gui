@@ -15,7 +15,7 @@ getgenv().Vert = {
     ['Silent'] = {
         ['FOV'] = {
             ['Enabled'] = true,
-            ['Prediction'] = 0.124,
+            ['Prediction'] = 0.151,
             ['AutoCheckJump'] = true,
             ['AntiGroundShot'] = false,
         },
