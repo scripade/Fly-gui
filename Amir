@@ -1,7 +1,7 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))()
 getgenv().Vert = {
     ['Camlock'] = {
-        ['Prediction'] = 0.159,
+        ['Prediction'] = 0.151,
         ['Prediction Method'] = {
             ['X'] = 7.91,
             ['Y'] = 6.86, 
@@ -30,8 +30,8 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = Players.LocalPlayer
 local Mouse = game.Players.LocalPlayer:GetMouse()
 local CamlockState = false
-local Prediction = 0.15634
-local Smoothness = 0.1
+local Prediction = 0.151
+local Smoothness = 0
 local AutoAir = true
 local EnemyAir = true
 local SmoothEnabled = true
