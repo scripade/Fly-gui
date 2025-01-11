@@ -1,14 +1,14 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))()
 getgenv().Vert = {
     ['Camlock'] = {
-        ['Prediction'] = 0.151,
+        ['Prediction'] = 0.159,
         ['Prediction Method'] = {
             ['X'] = 7.91,
             ['Y'] = 6.86, 
             }
         },
         ['JumpCheck'] = {
-            ['Jump'] = -0.03,
+            ['Jump'] = -6.86,
             ['Fall'] = -0.130,
         ['Target Part'] = "HumanoidRootPart"
     },
@@ -30,14 +30,14 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = Players.LocalPlayer
 local Mouse = game.Players.LocalPlayer:GetMouse()
 local CamlockState = false
-local Prediction = 0.151
-local Smoothness = 1
+local Prediction = 0.15634
+local Smoothness = 0.1
 local AutoAir = true
 local EnemyAir = true
 local SmoothEnabled = true
 local AirshotMaterial = Jump
 local JumpCheck = true
-local Jump = -0.03
+local Jump = -6.86 
 local Fall = -0.130
 
 local Highlight = Instance.new("Highlight")
