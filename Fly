@@ -1,5 +1,3 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/scripade/sh/refs/heads/main/Wsvr.txt"))()
-
 local repo = 'https://raw.githubusercontent.com/scripade/sh/refs/heads/main/'
 
 
