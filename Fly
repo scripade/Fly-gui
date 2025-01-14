@@ -27,7 +27,7 @@ local localPlayer = Players.LocalPlayer
 local owners = {
     "rikijun23",
     "bedthewar1",  
-    "gianxd854"
+    "GianXD854"
 }
 
 function x1y2z3(owner)
