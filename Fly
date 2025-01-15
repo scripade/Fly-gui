@@ -25,7 +25,7 @@ local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
 
 local owners = {
-    "rikijun23",
+    "rikijun22",
     "bedthewar1",  
     "GianXD854"
 }
