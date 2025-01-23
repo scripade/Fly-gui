@@ -50,7 +50,7 @@ SilentAimFOVCircle.Color = Color3.new(255, 0, 50)
 SilentAimFOVCircle.Visible = extort.Silent.FOV.SilentAimShowFOV
 SilentAimFOVCircle.Filled = false
 SilentAimFOVCircle.Radius = extort.Silent.FOV.SilentAimFOVSize
-SilentAimFOVCircle.Transparency = 0
+SilentAimFOVCircle.Transparency = 1
 SilentAimFOVCircle.Thickness = 2.0
 
 
