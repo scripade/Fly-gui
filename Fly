@@ -355,8 +355,8 @@ LeftGp:AddToggle('Cfra992me', {
 SaveManager:SetLibrary(Library)
 ThemeManager:SetLibrary(Library)
 
-ThemeManager:SetFolder('PsalmsTheme')
-SaveManager:SetFolder('PsalmsCFG')
+ThemeManager:SetFolder('VrlockTheme')
+SaveManager:SetFolder('VrlockCFG')
 
 ThemeManager:ApplyToTab(Tabs['Config'])
 SaveManager:BuildConfigSection(Tabs['Config'])
@@ -422,11 +422,11 @@ local function initializeToggleButton(screenGui)
     local button = Instance.new("TextButton")
     button.Size = UDim2.new(0, 100, 0, 60)
     button.Position = UDim2.new(1, -100, 0, 80)
-    button.Text = "Toggle UI"
+    button.Text = "UI"
     button.Font = Enum.Font.SourceSansBold
     button.TextSize = 14
     button.BackgroundColor3 = Color3.new(0, 0, 0)
-    button.BackgroundTransparency = 1
+    button.BackgroundTransparency = 0.3
     button.TextColor3 = Color3.new(1, 1, 1)
     button.BorderSizePixel = 0
 
@@ -511,7 +511,7 @@ local game_support = {
     ImageButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     ImageButton.BackgroundTransparency = 0.350
     ImageButton.Size = UDim2.new(0, 90, 0, 90)
-    ImageButton.Image = "rbxassetid://134820707156642"
+    ImageButton.Image = "rbxassetid://101402446912389"
     ImageButton.Position = UDim2.new(0.5, -25, 0.5, -25)
 
     local Ui2corner = Instance.new("UICorner")
@@ -732,12 +732,12 @@ local Blatant = {
     {70, 0.1416310605747206},
     {80, 0.1441481061236737},
     {90, 0.14306050263254388},
-    {100, 0.14698413210558095},
-    {110, 0.14528324362031425},
-    {120, 0.14556534594403},
-    {130, 0.14614337395777216},
-    {140, 0.14645603036905414},
-    {150, 0.14736848095666674},
+    {100, 0.120689385},
+    {110, 0.14104},
+    {120, 0.14104},
+    {130, 0.14104},
+    {140, 0.133944005175},
+    {150, 0.133944005175},
     {160, 0.14696985547996216},
     {170, 0.14718530231216217},
     {180, 0.1471532933015037},
