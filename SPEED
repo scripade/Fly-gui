@@ -1,0 +1,119 @@
+-- Roblox Mobile Drift Macro Script (Flicking Fix)
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local player = Players.LocalPlayer
+
+-- SETTINGS
+local baseSpeed = 799
+local slideForce = 160  -- smoother, more drift
+local checkInterval = 0.2
+
+-- GUI
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.ResetOnSpawn = false
+
+local toggle = Instance.new("TextButton")
+toggle.Size = UDim2.new(0,120,0,50)
+toggle.Position = UDim2.new(0.4,0,0.4,0)
+toggle.Text = "Macro: OFF"
+toggle.Font = Enum.Font.GothamBold
+toggle.TextScaled = true
+toggle.Draggable = true
+toggle.Parent = gui
+
+-- Neon Outline
+local stroke = Instance.new("UIStroke", toggle)
+stroke.Thickness = 4
+stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+local grad = Instance.new("UIGradient", toggle)
+grad.Transparency = NumberSequence.new(0.2)
+
+-- Rainbow Border Animation
+task.spawn(function()
+	local h = 0
+	while true do
+		h = (h+1)%360
+		local c = Color3.fromHSV(h/360,1,1)
+		stroke.Color = c
+		grad.Color = ColorSequence.new(c,c)
+		wait(0.05)
+	end
+end)
+
+-- GUI Pulse Animation
+task.spawn(function()
+	while true do
+		TweenService:Create(toggle, TweenInfo.new(0.4),{Size=UDim2.new(0,130,0,55)}):Play()
+		wait(0.4)
+		TweenService:Create(toggle, TweenInfo.new(0.4),{Size=UDim2.new(0,120,0,50)}):Play()
+		wait(0.4)
+	end
+end)
+
+-- STATE
+local macroOn = false
+local bodyVelocity = nil
+local bodyGyro = nil
+
+toggle.MouseButton1Click:Connect(function()
+	macroOn = not macroOn
+	toggle.Text = macroOn and "Macro: ON" or "Macro: OFF"
+end)
+
+-- Drift Logic
+local function onCharacter(char)
+	local humanoid = char:WaitForChild("Humanoid")
+	local root = char:WaitForChild("HumanoidRootPart")
+
+	humanoid.WalkSpeed = baseSpeed
+
+	-- Drift loop
+	task.spawn(function()
+		while char:IsDescendantOf(game) and humanoid.Health > 0 do
+			local equippedTool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+			local moveDir = humanoid.MoveDirection
+
+			if macroOn and equippedTool and moveDir.Magnitude > 0 then
+				-- Enable drift
+				if not bodyVelocity then
+					bodyVelocity = Instance.new("BodyVelocity")
+					bodyVelocity.MaxForce = Vector3.new(1e4, 0, 1e4)
+					bodyVelocity.Parent = root
+				end
+
+				if not bodyGyro then
+					bodyGyro = Instance.new("BodyGyro")
+					bodyGyro.MaxTorque = Vector3.new(4e5, 4e5, 4e5)
+					bodyGyro.P = 1e4
+					bodyGyro.D = 2e3  -- Lower damping for quicker turning
+					bodyGyro.Parent = root
+				end
+
+				-- Apply slide
+				bodyVelocity.Velocity = moveDir.Unit * slideForce
+
+				-- Smoothly update rotation
+				local targetCFrame = CFrame.new(root.Position, root.Position + moveDir)
+				local newCFrame = root.CFrame:Lerp(targetCFrame, 0.1) -- Smooth out the rotation change
+				bodyGyro.CFrame = newCFrame
+				root.CFrame = newCFrame  -- Smoothly adjust root part's CFrame for rotation
+
+			else
+				-- Disable drift
+				if bodyVelocity then bodyVelocity:Destroy() bodyVelocity = nil end
+				if bodyGyro then bodyGyro:Destroy() bodyGyro = nil end
+			end
+
+			-- Always keep WalkSpeed = baseSpeed
+			if humanoid.WalkSpeed ~= baseSpeed then
+				humanoid.WalkSpeed = baseSpeed
+			end
+
+			wait(checkInterval)
+		end
+	end)
+end
+
+player.CharacterAdded:Connect(onCharacter)
+if player.Character then onCharacter(player.Character) end
